@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: Notification_Api
+  config:
+    import: optional:configserver:http://localhost://2222
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+  data:
+    rest:
+      base-path: /api5
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/
+server:
+  port: 7076
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ''
+    password: ''
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+#pdfDir: invoices/
+#reportFileName: invoice
+#reportFileNameDateFormat: dd_MMMM_yyyy
+#localDateFormat: '"dd MMMM yyyy HH:mm:ss"'
+#logoImgPath: logo.png
+#logoImgScale: 50,50
+#currencySymbol: $
+#table_noOfColumns: 4
+#table:
+#  columnNames: Item Name,Quantity,Unit Price,Net Price
+#aws:
+#  accessKey: ''
+#  secret: ''
+#  region: ''
+#  bucketName: ''
+#wati:
+#  notification:
+#    template:
+#      name: delivery_notification
+#  payment:
+#    reminder:
+#      template:
+#        name: payment_reminders
+#  send:
+#    template:
+#      msg:
+#        url: ''
+#  token: ''
