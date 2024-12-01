@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: products_api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api1
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 7071
